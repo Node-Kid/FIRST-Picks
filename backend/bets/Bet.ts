@@ -4,7 +4,8 @@ import { Outcome } from "../misc/Outcome";
 import { User } from "../users/User";
 
 interface Bet {
-    match: Match;
+    match?: Match;
+    matches?:  Match[];
     wager: number;
     odds: number;
     resolve(outcome: Outcome): boolean
