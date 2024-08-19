@@ -1,3 +1,4 @@
+import { UUID } from "crypto";
 import { User } from "./User";
 
 class UserManager {
@@ -17,6 +18,9 @@ class UserManager {
 
     addUser(user: User) {
         this.userList.push(user);
+    }
+    getUserByID(id: UUID): User | undefined {
+        return this.userList.find(user => user.userid == id);
     }
 }
 
