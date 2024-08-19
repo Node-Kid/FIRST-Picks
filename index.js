@@ -4,7 +4,7 @@ const BetEngine = require('./backend/BetEngine').BetEngine;
 const port = 80
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.sendFile( __dirname + '/frontend/html/index.html');
 })
 
 

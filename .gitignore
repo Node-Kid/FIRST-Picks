@@ -121,7 +121,7 @@ dist
 
 # backend javascript files
 backend/**/*.js
-backend/BetEngine.js
+backend/*.js
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Node
 

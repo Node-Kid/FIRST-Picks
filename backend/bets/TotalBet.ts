@@ -23,3 +23,4 @@ class TotalBet implements Bet {
     }
 
 }
+export { TotalBet }
