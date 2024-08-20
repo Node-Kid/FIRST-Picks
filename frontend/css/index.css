@@ -1,0 +1,90 @@
+body {
+    background-color: #121416;
+    font-family: Arial, sans-serif;
+    color: #FEFFFE;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    width: 100%;
+    background-color: #1C1F22;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.sections {
+    width: 70%;
+}
+
+.section {
+    background-color: #1C1F22;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #1C1F22;
+    padding: 20px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+}
+h4, p {
+    margin: 5px;
+}
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.button-selector {
+    width: 100%;
+    display: flexbox;
+}
+.bet-button {
+    background-color: #40474F;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: block;
+    width: 45%;
+    height: 40px;
+    transition: 0.3s;
+}
+.bet-button:hover {
+    background-color: #FEFFFE;
+}
+.alliances {
+    display: inline;
+}
+.red-alliance {
+    display: grid;
+    background-color: rgb(168, 12, 12);
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.blue-alliance {
+    display: grid;
+    background-color: rgb(4, 4, 201);
+    border-radius: 5px;
+    margin-right: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+}

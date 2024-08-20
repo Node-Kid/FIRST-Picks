@@ -1,5 +1,8 @@
 require('dotenv').config()
 const app = require('express')();
+
+app.use(require('express').static(__dirname + '/frontend'))
+
 const BetEngine = require('./backend/BetEngine').BetEngine;
 const port = 80
 BetEngine.getInstance().generateBets('2024mibel_qm1')
