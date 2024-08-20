@@ -66,9 +66,11 @@ h4, p {
     width: 45%;
     height: 40px;
     transition: 0.3s;
+    color: #A0BDCF;
 }
 .bet-button:hover {
     background-color: #FEFFFE;
+    color: black;
 }
 .alliances {
     display: inline;
@@ -78,6 +80,7 @@ h4, p {
     background-color: rgb(168, 12, 12);
     border-radius: 5px;
     margin-right: 5px;
+    margin-top: 10px;
     margin-bottom: 10px;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -86,5 +89,7 @@ h4, p {
     background-color: rgb(4, 4, 201);
     border-radius: 5px;
     margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     grid-template-columns: 1fr 1fr 1fr;
 }
