@@ -3,13 +3,15 @@ import { Outcome } from "../misc/Outcome";
 import { getBetWinMultiplier } from "../misc/Util";
 import { Bet } from "./Bet";
 
-class Parlay implements Bet{
+class Parlay implements Bet {
+    type: string;
     bets: Bet[];
     matches: Match[];
     wager: number;
     odds: number;
 
     constructor(bets: Bet[], matches: Match[], wager: number) {
+        this.type = "parlay";
         this.bets = bets;
         this.matches = matches;
         this.wager = wager;

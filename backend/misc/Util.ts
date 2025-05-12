@@ -3,7 +3,7 @@ function getBetWinMultiplier(odds: number): number {
 }
 
 function generateOdds(probability: number): number {
-    let p = probability + 0.0227 //how to earn profits 101
+    let p = probability + 0.0227 //how to earn profits
     return p >= 0.5 ? (100 * p) / (p - 1) : (100 / p ) - 100
 }
 export { getBetWinMultiplier, generateOdds }

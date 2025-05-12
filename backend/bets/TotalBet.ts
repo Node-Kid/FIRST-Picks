@@ -3,15 +3,15 @@ import { Outcome } from "../misc/Outcome";
 import { Bet } from "./Bet";
 
 class TotalBet implements Bet {
-
+    type: string;
     match: Match;
     wager: number;
     odds: number;
     score: number;
     over: boolean;
 
-    constructor(match: Match, wager: number, odds: number, score: number, over: boolean) {
-        this.match = match;
+    constructor(wager: number, odds: number, score: number, over: boolean) {
+        this.type = "total";
         this.wager = wager;
         this.odds = odds;
         this.score = score;

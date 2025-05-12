@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "buildAndStart": "npx tsc .\\backend\\BetEngine.ts && node index.js",
+    "buildAndStart": "npx tsc ./backend/BetEngine.ts && node index.js",
     "start": "node index.js"
   },
   "author": "",
@@ -15,7 +15,7 @@
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "ws": "^8.18.0"
+    "ws": "^8.18.2"
   },
   "devDependencies": {
     "@types/node": "^22.4.0",

@@ -5,7 +5,7 @@ import { Match } from "./misc/Match";
 import { generateOdds } from "./misc/Util";
 import { TotalBet } from "./bets/TotalBet";
 class BetEngine {
-    bets: Bet[];
+    bets: Match[];
     key: string;
     event: string;
     matches: {}[];
@@ -39,15 +39,19 @@ class BetEngine {
                 // redProbability = response.data.pred.red_win_prob;
                 // blueProbability = 1 - redProbability;
                 // predictedMatchWinner = response.data.pred.winner;
+                let betsForMatch: Bet[] = [];
+                betsForMatch.push(new MoneylineBet(0, generateOdds(response.data.pred.red_win_prob), 'red'));
+                betsForMatch.push(new MoneylineBet(0, generateOdds(1 - response.data.pred.red_win_prob), 'blue'));
+                betsForMatch.push(new TotalBet(0, generateOdds(0.5), Math.floor(response.data.pred.red_score + response.data.pred.blue_score) + 0.5, false));
+                betsForMatch.push(new TotalBet(0, generateOdds(0.5), Math.floor(response.data.pred.red_score + response.data.pred.blue_score) + 0.5, true));
+                betsForMatch.push
                 let match: Match = {
                     redTeams: response.data.alliances.red,
                     blueTeams: response.data.alliances.blue,
-                    matchid: matchString
+                    matchid: matchString,
+                    bets: betsForMatch
                 };
-                this.bets.push(new MoneylineBet(match, 0, generateOdds(response.data.pred.red_win_prob), 'red'));
-                this.bets.push(new MoneylineBet(match, 0, generateOdds(1 - response.data.pred.red_win_prob), 'blue'));
-                this.bets.push(new TotalBet(match, 0, generateOdds(0.5), Math.floor(response.data.pred.red_score + response.data.pred.blue_score) + 0.5, false));
-                this.bets.push(new TotalBet(match, 0, generateOdds(0.5), Math.floor(response.data.pred.red_score + response.data.pred.blue_score) + 0.5, true));
+                this.bets.push(match);
               
         }).catch(error => console.log(error));
         

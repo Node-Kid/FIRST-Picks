@@ -4,6 +4,7 @@ import { Outcome } from "../misc/Outcome";
 import { User } from "../users/User";
 
 interface Bet {
+    type: string;
     match?: Match;
     matches?:  Match[];
     wager: number;
