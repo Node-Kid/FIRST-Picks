@@ -14,6 +14,7 @@ function loadBets(betsToBeLoaded) {
     for(let j = 0; j < betsToBeLoaded.length; j++) {
         let match = betsToBeLoaded[j];
         let matchId = match.matchid.match(matchRegex)[0];
+        createMatchPanel(matchId);
         document.getElementById(matchId + "-red").innerHTML = `
             <p>${match.redTeams.team_keys[0]}</p>
             <p>${match.redTeams.team_keys[1]}</p>
@@ -41,10 +42,64 @@ function loadBets(betsToBeLoaded) {
                 let secondBet = bets[i + 1];
                 let over = document.getElementById(matchId + "-over");
                 let under = document.getElementById(matchId + "-under");
-                over.innerHTML = "U " + secondBet.score + " (" + Math.round(secondBet.odds) + ")";
-                under.innerText = "O " + firstBet.score + " (" + Math.round(firstBet.odds) + ")";
+                over.innerHTML = "O " + secondBet.score + " (" + Math.round(secondBet.odds) + ")";
+                under.innerText = "U " + firstBet.score + " (" + Math.round(firstBet.odds) + ")";
                 i++;
             }
         }
     }
+}
+
+function createMatchPanel(match) {
+    let matchSection = document.createElement("div");
+    matchSection.setAttribute("class", "section");
+    matchSection.setAttribute("id", match);
+    let heading = document.createElement("h4");
+    heading.innerText = match;
+    matchSection.append(heading);
+    let infoGrid = document.createElement("div");
+    infoGrid.setAttribute("class", "info-grid");
+    let allianceText = document.createElement("p");
+    let moneylineText = document.createElement("p");
+    let totalText = document.createElement("p");
+    allianceText.innerText = "Alliance";
+    moneylineText.innerText = "Moneyline";
+    totalText.innerText = "Total";
+    infoGrid.append(allianceText);
+    infoGrid.append(moneylineText);
+    infoGrid.append(totalText);
+    let alliances = document.createElement("div");
+    alliances.setAttribute("class", "alliances");
+    alliances.innerHTML = 
+    `
+        <div class="red-alliance" id="${match}-red">
+            <p>?</p>
+            <p>?</p>
+            <p>?</p>
+        </div>
+        <div class="blue-alliance" id="${match}-blue">
+            <p>?</p>
+            <p>?</p>
+            <p>?</p>
+        </div>
+    `;
+    infoGrid.append(alliances);
+    let moneylineButtons = document.createElement("div");
+    moneylineButtons.setAttribute("class", "button-selector");
+    moneylineButtons.innerHTML = 
+    `
+        <button class="bet-button" id="${match}-moneyline-red">-200</button>
+        <button class="bet-button" id="${match}-moneyline-blue">+200</button>
+    `;
+    infoGrid.append(moneylineButtons);
+    let overUnderButtons = document.createElement("div");
+    overUnderButtons.setAttribute("class", "button-selector");
+    overUnderButtons.innerHTML = 
+    `
+        <button class="bet-button" id="${match}-over">O 100.5 (+110)</button>
+        <button class="bet-button" id="${match}-under">U 100.5 (-110)</button>
+    `;
+    infoGrid.append(overUnderButtons);
+    matchSection.append(infoGrid);
+    document.getElementById("match-list").append(matchSection);
 }

@@ -3,8 +3,12 @@ const app = require('express')();
 const { WebSocketServer } = require('ws');
 const webSocketServer = new WebSocketServer({ port: 8080 });
 const BetEngine = require('./backend/BetEngine').BetEngine;
+BetEngine.getInstance('2024mibel');
 const port = 80;
 BetEngine.getInstance().generateBets('2024mibel_qm1');
+
+BetEngine.getInstance().generateBets('2024mibel_qm2');
+
 // Express Code
 app.use(require('express').static(__dirname + '/frontend'));
 
