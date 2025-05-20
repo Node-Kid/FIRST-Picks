@@ -9,6 +9,10 @@ BetEngine.getInstance().generateBets('2024mibel_qm1');
 
 BetEngine.getInstance().generateBets('2024mibel_qm2');
 
+BetEngine.getInstance().generateBets('2024mibel_sf3m1');
+BetEngine.getInstance().generateBets('2024mibel_f1m1');
+BetEngine.getInstance().generateBets('2024mibel_f1m2');
+
 // Express Code
 app.use(require('express').static(__dirname + '/frontend'));
 

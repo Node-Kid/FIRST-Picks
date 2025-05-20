@@ -55,7 +55,6 @@ class BetEngine {
                 };
                 this.bets.push(match);
                 this.bets.sort(this.sortMatches);
-                console.log(this.bets);
               
         }).catch(error => console.log(error));
     }
@@ -72,11 +71,18 @@ class BetEngine {
             }
         }
         if(BetEngine.playoffMatchRegex.test(a.matchid) && BetEngine.playoffMatchRegex.test(b.matchid)) { // both playoff matches
-            let matchA = BetEngine.playoffMatchRegex.exec(a.matchid)?.[0].slice(2).split('m') as string[]; // splits the playoff number and match number (sf1m2 is split into [1, 2])
-            let matchB = BetEngine.playoffMatchRegex.exec(b.matchid)?.[0].slice(2).split('m') as string[];
-            if (parseInt(matchA[0]) > parseInt(matchB[0])) { // if playoff number of a is higher than b
+            let matchA = BetEngine.playoffMatchRegex.exec(a.matchid)?.[0].split('m') as string[]; // splits the playoff number and match number (sf1m2 is split into [1, 2])
+            let matchB = BetEngine.playoffMatchRegex.exec(b.matchid)?.[0].split('m') as string[];
+            let matchANumber = parseInt(matchA[0].slice(2));
+            let matchBNumber = parseInt(matchB[0].slice(2));
+            if(matchA[0][0] == "f" && matchB[0][0] == "s") { //if match a is final, and b is semi
                 return 1;
-            } else if (parseInt(matchA[0]) < parseInt(matchB[0])) {
+            } else if(matchA[0][0] == "s" && matchB[0][0] == "f") { //if match a is semi and b is final
+                return -1;
+            }
+            if (matchANumber > matchBNumber) { // if playoff number of a is higher than b
+                return 1;
+            } else if (matchANumber < matchBNumber) {
                 return -1;
             } else { // same playoff match, check match number;
                 if (parseInt(matchA[1]) > parseInt(matchB[1])) {

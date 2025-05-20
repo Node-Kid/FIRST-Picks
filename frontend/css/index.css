@@ -93,3 +93,44 @@ h4, p {
     margin-bottom: 10px;
     grid-template-columns: 1fr 1fr 1fr;
 }
+.bet-panel {
+	background-color: #1C1F22;
+	border-radius: 5px;
+	padding: 15px;
+	margin-top: 20px;
+}
+
+.bet-panel h3 {
+	margin-top: 0;
+	color: #FEFFFE;
+	font-size: 18px;
+}
+
+.bet-panel label {
+	display: block;
+	margin: 10px 0 5px;
+	color: #A0BDCF;
+}
+
+.bet-panel input {
+	width: 100%;
+	padding: 10px;
+	background-color: #2A2F33;
+	border: 1px solid #40474F;
+	border-radius: 5px;
+	color: #FEFFFE;
+	font-size: 14px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}
+
+.bet-actions {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.bet-action-button {
+	width: 48%;
+}
+
